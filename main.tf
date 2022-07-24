@@ -34,9 +34,43 @@ resource "aws_route_table" "dev_pub_rt" {
     Name = "dev_rt_table"
   }
 }
-
+// provides a networking address for interation between IGW and subnet
 resource "aws_route" "dev_rt" {
-  route_table_id            = aws_route_table.dev_pub_rt.id
-  destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = aws_internet_gateway.dev_int_gtw.id
+  route_table_id         = aws_route_table.dev_pub_rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.dev_int_gtw.id
+}
+
+
+resource "aws_route_table_association" "dev_pub_assoc" {
+  subnet_id      = aws_subnet.dev_pub_sub.id
+  route_table_id = aws_route_table.dev_pub_rt.id
+}
+
+
+resource "aws_security_group" "dev_sg" {
+  name        = "dev_sg"
+  description = "dev sec group"
+  vpc_id      = aws_vpc.dev_vpc.id
+
+  ingress {
+    description = "TLS from VPC"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"] // input your IP address here
+    //ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "dev_sg"
+  }
 }
