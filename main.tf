@@ -74,3 +74,8 @@ resource "aws_security_group" "dev_sg" {
     Name = "dev_sg"
   }
 }
+
+resource "aws_key_pair" "dev_env" {
+  key_name   = "dev-key"
+  public_key = file("~/.ssh/devenvkey.pub") // used file path function instead of direct key
+}
