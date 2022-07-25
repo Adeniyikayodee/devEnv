@@ -4,6 +4,9 @@
 
 1. AWS Account and cli installed
 2. Install Terraform
+3. Edit availiability zone to yours 
+4. Edit "IP address" on internet gatway resource section in main.tf
+5. Check datasource.tf and edit "owner" and "tag details" to yours
 
 ## Usage
 
