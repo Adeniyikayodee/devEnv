@@ -1,4 +1,4 @@
-## Dev Environment With Terraform and AWS
+## Dev Environment With Terraform and AWS = Work In Progress
 
 ## Prerequsities 
 
@@ -16,8 +16,8 @@
 4. Copy path in bracket and leave id_ed25519 out. "i.e (foo/bar/fineboy/id_ed25519), copy only foo/bar/fineboy"
 5. Paste foo/bar/fineboy/<desired_name> and press Enter.
 6. Search ssh in providers.tf and edit public key path
-6. Run ``` ls ~/.ssh ``` to view created keygen
-3. Run ``` terraform init ```
-4. Run ``` terraform plan ```
-5. Run ``` terraform apply -auto-approve ``` the auto-approve tag remove the "yes" section.
-6. 
+7. Run ``` ls ~/.ssh ``` to view created keygen
+8. Run ``` terraform init ```
+9. Run ``` terraform plan ```
+10. Run ``` terraform apply -auto-approve ``` the auto-approve tag remove the "yes" section.
+ 
