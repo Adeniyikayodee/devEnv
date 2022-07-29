@@ -20,4 +20,8 @@
 8. Run ``` terraform init ```
 9. Run ``` terraform plan ```
 10. Run ``` terraform apply -auto-approve ``` the auto-approve tag remove the "yes" section.
- 
+11. Run ``` terraform state list ``` to list resources
+12. Run ``` terraform state show aws_instance.dev_node ``` to see public ip 
+13. Run ``` ssh -i ~/.ssh/<pub_key_name> ubuntu@<pub_ip>
+14. Run ``` terraform destroy ``` to destroy all infra.
+

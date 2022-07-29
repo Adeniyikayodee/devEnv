@@ -95,4 +95,13 @@ resource "aws_instance" "dev_node" {
   tags = {
     "Name" = "dev_node"
   }
+
+  //servers the role of ansible here. 
+  provisioner "local-exec" {
+    command = templatefile("linux-ssh-config.tpl", {
+      hostname = self.public_ip,
+      user     = "ubuntu",
+    identityfile = "~/.ssh/devenvkey" })
+    interpreter = ["zsh", "-Command"]
+  }
 }
