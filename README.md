@@ -1,4 +1,4 @@
-## Dev Environment With Terraform and AWS = Work In Progress
+## Dev Environment With Terraform on AWS = Work In Progress
 
 ## Prerequsities 
 

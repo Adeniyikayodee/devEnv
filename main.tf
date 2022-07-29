@@ -79,3 +79,20 @@ resource "aws_key_pair" "dev_env" {
   key_name   = "dev-key"
   public_key = file("~/.ssh/devenvkey.pub") // used file path function instead of direct key
 }
+
+resource "aws_instance" "dev_node" {
+  ami           = data.aws_ami.server_ami.id # us-west-2
+  instance_type = "t2.micro"
+
+  tags = {
+    "Name" = "dev_node"
+  }
+
+  key_name               = aws_key_pair.dev_env.id
+  vpc_security_group_ids = [aws_security_group.dev_sg.id]
+  subnet_id              = aws_subnet.dev_pub_sub.id
+
+  root_block_device {
+    volume_size = 10
+  }
+}
