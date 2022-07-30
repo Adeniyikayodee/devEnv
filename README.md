@@ -24,4 +24,3 @@
 12. Run ``` terraform state show aws_instance.dev_node ``` to see public ip 
 13. Run ``` ssh -i ~/.ssh/<pub_key_name> ubuntu@<pub_ip>
 14. Run ``` terraform destroy ``` to destroy all infra.
-
