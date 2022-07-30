@@ -11,8 +11,9 @@
 ## Usage
 
 1. Configure AWS credentials and make default
-2. Check providers.tf and set to AWS region of choice
-3. Generate keypair to work with EC2. Run ``` ssh-keygen -t ed25519 ```
+2. Check ``` providers.tf ``` and set to AWS region of choice
+3. Generate keypair to work with EC2. 
+        Run ``` ssh-keygen -t ed25519 ```
 4. Copy path in bracket and leave id_ed25519 out. "i.e (foo/bar/fineboy/id_ed25519), copy only foo/bar/fineboy"
 5. Paste foo/bar/fineboy/<desired_name> and press Enter.
 6. Search ssh in providers.tf and edit public key path
